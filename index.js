@@ -6,27 +6,28 @@ const currency = {
     INR: 74.57,
     PKR: 280,
 };
-let user_answer = await inquirer.prompt([{
+let user_answer = await inquirer.prompt([
+    {
         name: "from",
         message: "Enter from currency",
         type: "list",
-        choices: ["USD", "EUR", "GBP", "INR", "PKR"]
+        choices: ["USD", "EUR", "GBP", "INR", "PKR"],
     },
     {
         name: "to",
         message: "Enter to currency",
         type: "list",
-        choices: ["USD", "EUR", "GBP", "INR", "PKR"]
+        choices: ["USD", "EUR", "GBP", "INR", "PKR"],
     },
     {
         name: "amount",
         message: "Enter from currency",
         type: "number",
-    }
+    },
 ]);
 let fromAmount = currency[user_answer.from];
 let toAmount = currency[user_answer.to];
 let amount = user_answer.amount;
 let baseAmount = amount / fromAmount;
 let convertAmount = baseAmount * toAmount;
-console.log(convertAmount);
+console.log(convertAmount.toFixed(2));
